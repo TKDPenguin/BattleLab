@@ -37,12 +37,12 @@ class Screen_Battle (tkinter.Frame):
         self.youText = tkinter.Label(self,text='You').grid(row=4,column=0,sticky=tkinter.N)
         self.compText = tkinter.Label(self,text='Computer').grid(row=4,column=1,sticky=tkinter.N)
 
-        self.p1imageLarge = tkinter.PhotoImage(file="images/" + self.player1.large_image);
+        self.p1imageLarge = tkinter.PhotoImage(file="images/" + self.player1.large_image)
         self.p1image = tkinter.Label (self,image = self.p1imageLarge)
         self.p1image.photo = self.p1imageLarge
         self.p1image.grid(row=5,column=0)
 
-        self.p2imageLarge = tkinter.PhotoImage(file="images/" + self.player2.large_image);
+        self.p2imageLarge = tkinter.PhotoImage(file="images/" + self.player2.large_image)
         self.p2image = tkinter.Label (self,image = self.p2imageLarge)
         self.p2image.photo = self.p2imageLarge
         self.p2image.grid(row=5,column=1)
@@ -71,7 +71,7 @@ class Screen_Battle (tkinter.Frame):
         self.p1healthText['text'] = f'{self.player1.hit_points}/{self.player1_max_hp}'
         self.p2healthText['text'] = f'{self.player2.hit_points}/{self.player2_max_hp}'
 
-        if self.player1.hit_points < 0 or  self.player2.hit_points < 0:
+        if self.player1.hit_points <= 0 or self.player2.hit_points <= 0:
             self.exitButton = tkinter.Button(self, text='Exit', fg='red', font='Calibri 18',bg='black',command=self.exit_clicked).grid(row=7,column = 1, sticky=tkinter.E)
             self.attackButton.destroy()   
             self.victoryText['text'] = self.player1.name+" is victorious!" if self.player1.hit_points > 0 else self.player2.name+" is victorious!"
